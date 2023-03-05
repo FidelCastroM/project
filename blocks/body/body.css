@@ -1,0 +1,32 @@
+.body {
+    box-sizing: border-box;
+    min-width: 320px;
+    max-width: 880px;
+    background: #000000;
+    color: #FFFFFF;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 45px 0 60px;
+    font-family: 'Inter', Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+}
+
+@media screen and (max-width: 900px) {
+    .body {
+        max-width: 579px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .body {
+        max-width: 282px;
+        padding: 28px 0 36px;
+    }
+}

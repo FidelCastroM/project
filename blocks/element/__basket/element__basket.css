@@ -1,0 +1,7 @@
+.element__basket {
+    margin: 0;
+}
+
+.element__basket:hover {
+    opacity: 0.6;
+}

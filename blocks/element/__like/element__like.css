@@ -1,0 +1,7 @@
+.element__like {
+    margin: 0;
+}
+
+.element__like:hover {
+    opacity: 0.5;
+}
