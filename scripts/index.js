@@ -115,7 +115,6 @@ const addElementCard = (cards) => {
     const newTitle = newElementCard.querySelector('.element__landscape'); // Добавили название
     const newImage = newElementCard.querySelector('.element__image'); // Добавили картинку
     newTitle.textContent = cards.name;
-    newImage.alt = cards.name;
     newImage.src = cards.link;
 
     // Ставим лайк карточке
