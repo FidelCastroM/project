@@ -134,6 +134,7 @@ const addElementCard = (cards) => {
 
     newImage.addEventListener('click', () => {
         popupImagePicture.src = cards.link;
+        popupImagePicture.alt = cards.name;
         popupImageText.textContent = cards.name;
         openPopupImage();
     });
