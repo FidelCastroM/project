@@ -40,12 +40,39 @@
             <div class="popup__container popup__container_form">
                 <button aria-label="Закрытие" type="button" id="close-edit" class="popup__close"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form action="#" id="form-edit" method="post" name="popup-form-editing" class="popup__form">
-                        <input class="popup__input popup__input_key_name" type="text" name="forename" id="forename" autocomplete="off"
-                            value="Жак-Ив Кусто">
-                        <input class="popup__input popup__input_key_about-me" type="text" name="about-me" id="about-me" autocomplete="off"
-                            value="Исследователь океана">
+                <form action="#" id="form-edit" method="post" name="popup-form-editing" class="popup__form" novalidate>
+                    <div class="popup__section">
+                            <input class="popup__input popup__input_key_name" type="text" name="forename" id="forename" autocomplete="off"
+                                value="Жак-Ив Кусто" required minlength="2" maxlength="40">
+                            <span class="popup__input-error" id="forename-error"></span>
+                    </div>
+                    <div class="popup__section">
+                            <input class="popup__input popup__input_key_about-me" type="text" name="about-me" id="about-me" autocomplete="off"
+                                value="Исследователь океана" required minlength="2" maxlength="200">
+                            <span class="popup__input-error" id="about-me-error"></span>
+                    </div>
                     <button aria-label="Сохранение" type="submit" class="popup__button">Сохранить</button>
+                </form>
+            </div>
+        </section>
+
+        <!--Попап добавления карточки-->
+        <section class="popup popup_effect" id="add">
+            <div class="popup__container popup__container_form">
+                <button aria-label="Закрытие" type="button" id="close-add" class="popup__close"></button>
+                <h2 class="popup__title">Новое место</h2>
+                <form action="#" id="form-add" method="post" name="popup-form-adding" class="popup__form" novalidate>
+                    <div class="popup__section">
+                            <input class="popup__input popup__input_denomination" type="text" name="denomination" id="denomination"
+                                autocomplete="off" value="" placeholder="Название" required>
+                            <span class="popup__input-error" id="denomination-error"></span>
+                    </div>
+                    <div class="popup__section">
+                            <input class="popup__input popup__input_link-to-image" type="url" name="link-to-image"
+                                id="link-to-image" autocomplete="off" value="" placeholder="Ссылка на картинку" required>
+                            <span class="popup__input-error" id="link-to-image-error"></span>
+                    </div>
+                    <button aria-label="Создание" type="submit" class="popup__button">Создать</button>
                 </form>
             </div>
         </section>
@@ -65,21 +92,6 @@
                 </div>
             </li>
         </template>
-
-        <!--Попап добавления карточки-->
-        <section class="popup popup_effect" id="add">
-            <div class="popup__container popup__container_form">
-                <button aria-label="Закрытие" type="button" id="close-add" class="popup__close"></button>
-                <h2 class="popup__title">Новое место</h2>
-                <form action="#" id="form-add" method="post" name="popup-form-adding" class="popup__form">
-                    <input class="popup__input popup__input_denomination" type="text" name="denomination" id="denomination"
-                        autocomplete="off" value="" placeholder="Название">
-                    <input class="popup__input popup__input_link-to-image" type="text" name="link-to-image" id="link-to-image"
-                        autocomplete="off" value="" placeholder="Ссылка на картинку">
-                    <button aria-label="Создание" type="submit" class="popup__button">Создать</button>
-                </form>
-            </div>
-        </section>
 
         <!--Попап увеличение изображения-->
         <div class="popup popup_image" id="popup-image">

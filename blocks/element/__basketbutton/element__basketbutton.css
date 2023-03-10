@@ -5,4 +5,5 @@
     position: absolute;
     border: none;
     background: none;
+    z-index: 1;
 }

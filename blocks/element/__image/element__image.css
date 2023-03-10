@@ -6,4 +6,6 @@
     border-bottom-right-radius: 0;
     background-color: #000;
     cursor: pointer;
+    display: flex;
+    position: relative;
 }

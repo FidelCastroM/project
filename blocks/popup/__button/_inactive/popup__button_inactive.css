@@ -1,0 +1,5 @@
+.popup__button_inactive {
+    color: #000;
+    background-color: #fff;
+    cursor: none;
+}

@@ -116,6 +116,7 @@ const addElementCard = (cards) => {
     const newImage = newElementCard.querySelector('.element__image'); // Добавили картинку
     newTitle.textContent = cards.name;
     newImage.src = cards.link;
+    newImage.alt = cards.name;
 
     // Ставим лайк карточке
     const cardLike = newElementCard.querySelector('.element__like');
@@ -173,12 +174,40 @@ function openPopupAdd(evt) {
 
 addInput.addEventListener('click', openPopupAdd);
 
-// Здесь не могу разобраться
-function saveAdd(cards) {
-    nameCard.textContent = cards.name;
-    imageCard.src = cards.link;
-    imageCard.alt = cards.name;
-    closePopup(add);
+// Раздел кода с валидацией форм ..........................................................................................................................................
+const form = document.querySelector('.popup__form');
+const buttonSubmit = form.querySelector('.popup__button');
+const inputs = form.querySelectorAll('.popup__input');  
+inputs.forEach(inputElement => {
+    inputElement.addEventListener('input', () => {
+        const isValid = inputElement.validity.valid;
+        const inputSectionElement = inputElement.parentNode;
+        const errorElement = inputSectionElement.querySelector('.popup__input-error');
+        if (isValid) {
+            errorElement.textContent = '';
+            errorElement.classList.remove('popup__input-error_active');
+        } else {
+            errorElement.textContent = inputElement.validationMessage;
+            errorElement.classList.add('popup__input-error_active');
+        }
+        console.log(inputElement.validationMessage);
+    });
+});
+
+let formIsValid = true;
+for (let i = 0; i < inputs.length; i++) {
+    const inputElement = inputs[i];
+    const isValid = inputElement.validity.valid;
+    if (!isValid) {
+        formIsValid = false;
+        break;
+    }
 }
 
-formAdd.addEventListener('submit', saveAdd);
+if (formIsValid) {
+    buttonSubmit.disabled = '';
+    buttonSubmit.classList.remove('popup__button_inactive');
+} else {
+    buttonSubmit.disabled = 'true';
+    buttonSubmit.classList.add('popup__button_inactive');
+};
