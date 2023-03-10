@@ -37,7 +37,21 @@ const popupImageText = document.querySelector('.popup__figcaption');
 // Общая функция открытия попапов
 function openPopup(popup) {
     popup.classList.add('popup_opened');
+    document.addEventListener('keydown', (evt) => {
+        if (evt.key === 'Escape') {
+            popup.classList.remove('popup_opened');
+        }
+    });
 }
+
+popup.forEach(item => {
+    item.addEventListener('click', (evt) => {
+        if (evt.target === evt.currentTarget) {
+            closePopup(item);
+        }
+    });
+});
+
 
 // Крестик закрытия попапов
 const closePopupButtons = document.querySelectorAll('.popup__close');
@@ -173,41 +187,3 @@ function openPopupAdd(evt) {
 }
 
 addInput.addEventListener('click', openPopupAdd);
-
-// Раздел кода с валидацией форм ..........................................................................................................................................
-const form = document.querySelector('.popup__form');
-const buttonSubmit = form.querySelector('.popup__button');
-const inputs = form.querySelectorAll('.popup__input');  
-inputs.forEach(inputElement => {
-    inputElement.addEventListener('input', () => {
-        const isValid = inputElement.validity.valid;
-        const inputSectionElement = inputElement.parentNode;
-        const errorElement = inputSectionElement.querySelector('.popup__input-error');
-        if (isValid) {
-            errorElement.textContent = '';
-            errorElement.classList.remove('popup__input-error_active');
-        } else {
-            errorElement.textContent = inputElement.validationMessage;
-            errorElement.classList.add('popup__input-error_active');
-        }
-        console.log(inputElement.validationMessage);
-    });
-});
-
-let formIsValid = true;
-for (let i = 0; i < inputs.length; i++) {
-    const inputElement = inputs[i];
-    const isValid = inputElement.validity.valid;
-    if (!isValid) {
-        formIsValid = false;
-        break;
-    }
-}
-
-if (formIsValid) {
-    buttonSubmit.disabled = '';
-    buttonSubmit.classList.remove('popup__button_inactive');
-} else {
-    buttonSubmit.disabled = 'true';
-    buttonSubmit.classList.add('popup__button_inactive');
-};
